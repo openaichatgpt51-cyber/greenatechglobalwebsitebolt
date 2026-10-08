@@ -51,6 +51,34 @@ const ROUTES = [
     ogTitle: 'Contact | Greenatech',
     ogDescription: 'Get in touch about enterprise solutions, training, and AI products.',
   },
+  {
+    path: '/products',
+    title: 'Our Products | Greenatech',
+    description: 'AI-powered products built by Greenatech — workflow automation, social media intelligence, logistics optimisation, and more.',
+    ogTitle: 'Our Products | Greenatech',
+    ogDescription: 'AI-powered products solving real problems for African businesses and beyond.',
+  },
+  {
+    path: '/privacy-policy',
+    title: 'Privacy Policy | Greenatech',
+    description: 'How Greenatech collects, uses, and protects your personal information when you use our website and services.',
+    ogTitle: 'Privacy Policy | Greenatech',
+    ogDescription: 'How we collect, use, and protect your personal information.',
+  },
+  {
+    path: '/terms-of-service',
+    title: 'Terms of Service | Greenatech',
+    description: 'The terms and conditions that govern your use of the Greenatech website and our digital services.',
+    ogTitle: 'Terms of Service | Greenatech',
+    ogDescription: 'Terms and conditions governing use of the Greenatech website.',
+  },
+  {
+    path: '/cookie-policy',
+    title: 'Cookie Policy | Greenatech',
+    description: 'How Greenatech uses cookies and similar technologies on this website, and how you can control them.',
+    ogTitle: 'Cookie Policy | Greenatech',
+    ogDescription: 'How we use cookies and how you can control them.',
+  },
 ];
 
 const READY_TIMEOUT = 15000;

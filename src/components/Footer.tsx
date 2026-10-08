@@ -11,7 +11,7 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About Us', to: '/about' },
-    { label: 'Our Products', to: '/' },
+    { label: 'Our Products', to: '/products' },
     { label: 'Careers', to: '/contact' },
     { label: 'Greenatech Academy', to: '/training' },
   ],
@@ -20,7 +20,11 @@ const footerLinks = {
     { label: 'Tech Starter Tracks', to: '/training' },
     { label: 'Youth Empowerment Hub', to: '/training' },
   ],
-  Legal: ['Privacy Policy', 'Cookie Policy', 'Terms of Service'],
+  Legal: [
+    { label: 'Privacy Policy', to: '/privacy-policy' },
+    { label: 'Cookie Policy', to: '/cookie-policy' },
+    { label: 'Terms of Service', to: '/terms-of-service' },
+  ],
 };
 
 const socials = [
@@ -140,13 +144,13 @@ export default function Footer() {
               © {new Date().getFullYear()} Greenatech Global. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link to="/contact" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+              <Link to="/privacy-policy" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/contact" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
-                Cookie Settings
+              <Link to="/cookie-policy" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+                Cookie Policy
               </Link>
-              <Link to="/contact" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+              <Link to="/terms-of-service" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
                 Terms
               </Link>
             </div>

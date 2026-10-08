@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Awards from '../components/Awards';
 import AboutTeaser from '../components/teasers/AboutTeaser';
 import ServicesTeaser from '../components/teasers/ServicesTeaser';
 import VentureStudio from '../components/VentureStudio';
@@ -27,7 +26,6 @@ export default function MainSite() {
     <div className="min-h-screen bg-brand-dark text-white">
       <Navbar />
       <Hero />
-      <Awards />
       <AboutTeaser />
       <ServicesTeaser />
       {ventureStudioEnabled && <VentureStudio />}

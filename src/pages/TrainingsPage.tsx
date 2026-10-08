@@ -13,11 +13,6 @@ const corporateCourses = [
   'Agile & Product Management',
 ];
 
-const corporateStats = [
-  { value: '500+', label: 'Professionals Trained' },
-  { value: '30+', label: 'Corporate Clients' },
-  { value: '4.9/5', label: 'Satisfaction Score' },
-];
 
 const starterTracks = [
   {
@@ -105,15 +100,6 @@ export default function TrainingsPage() {
                   <CheckCircle2 size={16} className="text-brand-green mt-0.5 flex-shrink-0" />
                   <span className="text-gray-300 text-sm group-hover:text-white transition-colors">{course}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-3 gap-px bg-brand-border mb-12 max-w-2xl">
-            {corporateStats.map((s) => (
-              <div key={s.label} className="bg-brand-dark p-6 text-center">
-                <div className="text-3xl lg:text-4xl font-black text-brand-green mb-1">{s.value}</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider leading-snug">{s.label}</div>
               </div>
             ))}
           </div>

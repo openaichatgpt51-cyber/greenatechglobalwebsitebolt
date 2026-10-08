@@ -54,24 +54,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="relative z-10 border-t border-brand-border bg-brand-dark/90 backdrop-blur-sm">
-        <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-brand-border">
-            {[
-              { value: '500+', label: 'Projects Delivered' },
-              { value: '1000+', label: 'Tech Specialists Trained' },
-              { value: '50+', label: 'Global Enterprise Clients' },
-              { value: '10+', label: 'Owned AI Products' },
-            ].map((stat) => (
-              <div key={stat.label} className="px-6 py-6 lg:py-8">
-                <div className="text-3xl lg:text-4xl font-black text-white mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

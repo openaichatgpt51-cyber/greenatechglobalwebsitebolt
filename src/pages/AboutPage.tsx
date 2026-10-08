@@ -9,7 +9,7 @@ const milestones = [
   { year: '2018', title: 'First Enterprise Clients', desc: 'We deliver cloud and AI solutions to leading enterprises across Nigeria and West Africa.' },
   { year: '2021', title: 'Next Generation Hub Launches', desc: "Our youth training initiative opens, beginning our mission to build Africa's tech talent pipeline." },
   { year: '2023', title: 'Standalone Products Division', desc: 'We launch our own portfolio of AI-powered products for the global digital economy.' },
-  { year: '2025', title: '500+ Projects, 1000+ Trained', desc: 'A self-reinforcing innovation engine operating across three strategic pillars at scale.' },
+  { year: '2025', title: 'Scaling Across Africa', desc: 'A self-reinforcing innovation engine operating across three strategic pillars.' },
 ];
 
 const values = [
@@ -17,13 +17,6 @@ const values = [
   { icon: Users, title: 'Talent-First', desc: "We invest in people — building Africa's next generation of world-class engineers." },
   { icon: Globe, title: 'Global Ambition', desc: 'We build from Lagos for the world, ensuring African enterprises lead globally.' },
   { icon: Lightbulb, title: 'AI-Native', desc: 'AI is not an add-on. It is the foundation of everything we architect and build.' },
-];
-
-const stats = [
-  { value: '500+', label: 'Projects Delivered' },
-  { value: '1000+', label: 'Tech Specialists Trained' },
-  { value: '50+', label: 'Global Enterprise Clients' },
-  { value: '10+', label: 'Owned AI Products' },
 ];
 
 export default function AboutPage() {
@@ -78,20 +71,6 @@ export default function AboutPage() {
                 </cite>
               </blockquote>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 lg:py-20 bg-[#0a0a0a] border-y border-brand-border">
-        <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-brand-border">
-            {stats.map((stat) => (
-              <div key={stat.label} className="px-6 py-6 text-center">
-                <div className="text-4xl lg:text-5xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { supabase, CaseStudy } from '../lib/supabase';
+import { registerPrerenderTask } from '../lib/prerenderReady';
 
 const fallback: Pick<CaseStudy, 'title' | 'tags' | 'image_url'>[] = [
   {
@@ -15,14 +16,21 @@ export default function CaseStudies() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    supabase
-      .from('case_studies')
-      .select('*')
-      .eq('published', true)
-      .order('sort_order', { ascending: true })
+    const done = registerPrerenderTask('case_studies');
+    Promise.resolve(
+      supabase
+        .from('case_studies')
+        .select('*')
+        .eq('published', true)
+        .order('sort_order', { ascending: true })
+    )
       .then(({ data }) => {
         setStudies((data as CaseStudy[]) ?? []);
         setLoaded(true);
+        done();
+      })
+      .catch(() => {
+        done();
       });
   }, []);
 

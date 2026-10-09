@@ -23,7 +23,7 @@ export default function ServicesTeaser() {
               Built to outlast the problem
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              African enterprises face a specific set of constraints — intermittent connectivity,
+              African enterprises face a specific set of constraints: intermittent connectivity,
               underdocumented legacy systems, talent gaps, and cybersecurity exposure that grows
               faster than most IT teams can respond to. Whether it's a retailer automating inventory
               and POS workflows, a university modernising student records and admissions, or a bank

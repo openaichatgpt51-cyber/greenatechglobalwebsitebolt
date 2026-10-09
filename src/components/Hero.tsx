@@ -34,7 +34,7 @@ export default function Hero() {
           {/* Subtext */}
           <p className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mb-12 font-light">
             From retail operations to university systems, financial services to public sector
-            programmes — we help organisations across Africa automate what's manual, secure what's
+            programmes, we help organisations across Africa automate what's manual, secure what's
             exposed, and modernise what's outdated. From Lagos, for the world.
           </p>
 

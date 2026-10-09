@@ -72,7 +72,7 @@ export default function ProductsPage() {
               AI-powered products that run on our core infrastructure.
             </h2>
             <p className="text-gray-400 leading-relaxed mt-6">
-              Each product runs on Greenatech's core AI infrastructure — which means every new
+              Each product runs on Greenatech's core AI infrastructure, which means every new
               product we ship makes the stack stronger for all the others.
             </p>
           </div>

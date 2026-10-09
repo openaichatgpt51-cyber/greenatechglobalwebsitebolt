@@ -26,7 +26,7 @@ export default function CTADuo() {
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
                   Most of the organisations we work with didn't come to us with a clear tech brief.
-                  They came with a problem — a process that was costing too much, a system that kept
+                  They came with a problem: a process that was costing too much, a system that kept
                   breaking, a competitor doing something they couldn't do yet. That's where we start.
                   Tell us what's wrong. We'll tell you what's possible.
                 </p>
@@ -59,7 +59,7 @@ export default function CTADuo() {
                   Come build with us.
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
-                  We are building Greenatech to last — and we are looking for people who want to
+                  We are building Greenatech to last, and we are looking for people who want to
                   build something that outlasts them. If you are an engineer, product manager,
                   designer, or sales professional who wants to work on Africa's hardest problems
                   with a team that takes them seriously, we want to hear from you.

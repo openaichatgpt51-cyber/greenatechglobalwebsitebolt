@@ -65,7 +65,7 @@ export default function EnterpriseSolutionsPage() {
       <PageHero
         eyebrow="Enterprise Solutions"
         title={<>Built to outlast the problem</>}
-        subtitle="African enterprises face a specific set of constraints — intermittent connectivity, underdocumented legacy systems, talent gaps, and cybersecurity exposure that grows faster than most IT teams can respond to. Greenatech builds around those constraints, not despite them."
+        subtitle="African enterprises face a specific set of constraints: intermittent connectivity, underdocumented legacy systems, talent gaps, and cybersecurity exposure that grows faster than most IT teams can respond to. Greenatech builds around those constraints, not despite them."
         image="https://images.pexels.com/photos/37730212/pexels-photo-37730212.jpeg?auto=compress&cs=tinysrgb&w=1920"
       />
 

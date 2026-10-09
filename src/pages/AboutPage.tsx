@@ -51,10 +51,11 @@ export default function AboutPage() {
               </p>
               <p className="text-gray-400 leading-relaxed">
                 From Lagos, we operate across three interconnected lines of business: enterprise digital
-                transformation and cybersecurity for African organisations that need to operate at global
-                standards; a Youth Empowerment Hub that turns African potential into world-class technical
-                talent; and a growing portfolio of AI-powered products solving real problems in social
-                media, logistics, real estate, and beyond.
+                transformation, a talent development hub, and a growing portfolio of AI-powered
+                products. Each pillar feeds the others. The enterprises we serve help fund the Academy.
+                The talent we train goes on to build and maintain our products. The products generate
+                the case studies that win the next enterprise contract. That is not a strategy. That
+                is a machine.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 Each pillar feeds the others. The enterprises we serve help fund the Academy. The talent we
@@ -140,7 +141,7 @@ export default function AboutPage() {
                 Want to be part of the story?
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                We are building Greenatech to last — and we are looking for people who want to build
+                We are building Greenatech to last, and we are looking for people who want to build
                 something that outlasts them. If you are an engineer, product manager, designer, or
                 sales professional who wants to work on Africa's hardest problems, we want to hear
                 from you.

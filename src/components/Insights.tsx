@@ -56,7 +56,7 @@ export default function Insights() {
           </div>
           <div className="lg:max-w-sm">
             <p className="text-gray-400 leading-relaxed mb-6">
-              We publish what we actually think — about AI implementation, African enterprise
+              We publish what we actually think about AI implementation, African enterprise
               realities, and the hard lessons from building our own products. No content marketing.
               No trend-chasing. Just the things worth saying.
             </p>

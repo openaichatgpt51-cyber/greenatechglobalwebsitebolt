@@ -35,7 +35,7 @@ export default function AboutTeaser() {
             </h2>
             <p className="text-gray-400 leading-relaxed mb-8">
               Greenatech is not an agency. We build systems that compound. From Lagos, we operate
-              across three interconnected lines of business — enterprise digital transformation,
+              across three interconnected lines of business: enterprise digital transformation,
               a talent development hub, and a growing portfolio of AI-powered products. Each
               pillar feeds the others. That is not a strategy. That is a machine.
             </p>

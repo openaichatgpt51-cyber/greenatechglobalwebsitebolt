@@ -59,7 +59,7 @@ export default function CaseStudies() {
             <p className="text-gray-400 leading-relaxed mb-6">
               Every product in this portfolio started as a problem we saw African businesses
               struggling with and couldn't find a world-class solution for. So we built one.
-              Each product runs on Greenatech's core AI infrastructure — which means every new
+              Each product runs on Greenatech's core AI infrastructure, which means every new
               product we ship makes the stack stronger for all the others.
             </p>
             <a

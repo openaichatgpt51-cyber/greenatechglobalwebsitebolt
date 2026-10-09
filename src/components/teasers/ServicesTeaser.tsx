@@ -25,8 +25,10 @@ export default function ServicesTeaser() {
             <p className="text-gray-400 text-lg leading-relaxed">
               African enterprises face a specific set of constraints — intermittent connectivity,
               underdocumented legacy systems, talent gaps, and cybersecurity exposure that grows
-              faster than most IT teams can respond to. Greenatech builds around those constraints,
-              not despite them.
+              faster than most IT teams can respond to. Whether it's a retailer automating inventory
+              and POS workflows, a university modernising student records and admissions, or a bank
+              hardening its fraud detection, Greenatech builds around those constraints, not despite
+              them.
             </p>
           </div>
           <Link

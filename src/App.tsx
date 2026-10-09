@@ -12,6 +12,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import ScrollToTop from './components/ScrollToTop';
+import { OrganizationStructuredData } from './components/StructuredData';
 import { markPrerenderReady } from './lib/prerenderReady';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <OrganizationStructuredData />
         <ScrollToTop />
         <Routes>
           <Route path="/admin/*" element={<AdminLayout />} />

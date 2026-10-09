@@ -10,6 +10,7 @@ import Insights from '../components/Insights';
 import CTADuo from '../components/CTADuo';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import { FAQStructuredData } from '../components/StructuredData';
 import { useSiteSettings } from '../hooks/useSiteSettings';
 import { trackEvent } from '../lib/supabase';
 
@@ -34,6 +35,7 @@ export default function MainSite() {
       <Insights />
       <CTADuo />
       <FAQ />
+      <FAQStructuredData />
       <Footer />
     </div>
   );

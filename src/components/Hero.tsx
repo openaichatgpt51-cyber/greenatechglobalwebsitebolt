@@ -33,8 +33,9 @@ export default function Hero() {
 
           {/* Subtext */}
           <p className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mb-12 font-light">
-            We build the technology products that scale African enterprises. We train the talent
-            that runs them. From Lagos, for the world.
+            From retail operations to university systems, financial services to public sector
+            programmes — we help organisations across Africa automate what's manual, secure what's
+            exposed, and modernise what's outdated. From Lagos, for the world.
           </p>
 
           {/* CTA */}

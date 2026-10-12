@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutDashboard, Settings, Image, FileText, BookOpen, Users,
-  LogOut, Menu, X, ChevronRight, Shield
+  LogOut, Menu, X, ChevronRight, Shield, Mail, Lock, Eye, EyeOff, AlertCircle
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import AdminDashboard from './AdminDashboard';
@@ -21,6 +21,79 @@ const navItems = [
   { icon: Settings, label: 'Settings', path: '/admin/settings', superOnly: true },
 ];
 
+function AuthForm() {
+  const { signIn } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    const { error } = await signIn(email, password);
+    if (error) {
+      setError(error);
+    }
+    setLoading(false);
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {error && (
+        <div className="flex items-start gap-2 bg-red-500/10 border border-red-500/20 px-3 py-2.5 text-red-400 text-xs">
+          <AlertCircle size={14} className="flex-shrink-0 mt-0.5" />
+          {error}
+        </div>
+      )}
+      <div>
+        <label className="block text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Email</label>
+        <div className="relative">
+          <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600" />
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-4 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-600"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+      <div>
+        <label className="block text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Password</label>
+        <div className="relative">
+          <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600" />
+          <input
+            type={showPassword ? 'text' : 'password'}
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-10 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-600"
+            placeholder="••••••••"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-400"
+          >
+            {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
+          </button>
+        </div>
+      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-brand-green text-black text-sm font-semibold py-3.5 hover:bg-lime-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {loading ? 'Signing in...' : 'Sign In'}
+      </button>
+    </form>
+  );
+}
+
 export default function AdminLayout() {
   const { user, adminRole, signOut, loading } = useAuth();
   const location = useLocation();
@@ -35,7 +108,27 @@ export default function AdminLayout() {
   }
 
   if (!user || !adminRole) {
-    return <Navigate to="/" replace />;
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-4">
+        <div className="w-full max-w-md">
+          <div className="bg-[#141414] border border-[#222] p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="bg-white rounded px-2 py-1">
+                <img src="/Main_Logo.png" alt="Greenatech" className="h-5 w-auto" />
+              </div>
+              <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Admin</span>
+            </div>
+            <h2 className="text-xl font-black text-white mb-2">Admin Sign In</h2>
+            <p className="text-gray-500 text-xs mb-6">
+              {user
+                ? 'Your account does not have admin access.'
+                : 'Sign in with your admin account to access the panel.'}
+            </p>
+            <AuthForm />
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const filteredNav = navItems.filter(item => !item.superOnly || adminRole === 'super_admin');

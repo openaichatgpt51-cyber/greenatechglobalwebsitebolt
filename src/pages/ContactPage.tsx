@@ -57,6 +57,21 @@ export default function ContactPage() {
       return;
     }
 
+    fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-notification`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        company: form.company || null,
+        service: form.service || null,
+        message: form.message,
+      }),
+    }).catch(() => {});
+
     setStatus('success');
     setForm({ name: '', email: '', company: '', service: '', message: '' });
   }

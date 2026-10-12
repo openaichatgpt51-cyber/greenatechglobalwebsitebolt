@@ -9,7 +9,7 @@ interface Setting {
   updated_at: string;
 }
 
-const settingMeta: Record<string, { label: string; description: string; type: 'toggle' | 'text' }> = {
+const settingMeta: Record<string, { label: string; description: string; type: 'toggle' | 'text' | 'email' }> = {
   venture_studio_enabled: {
     label: 'Venture Studio Section',
     description: 'Show or hide the Venture Studio section on the main site.',
@@ -24,6 +24,11 @@ const settingMeta: Record<string, { label: string; description: string; type: 't
     label: 'Maintenance Mode',
     description: 'Enable to show a maintenance message to site visitors.',
     type: 'toggle',
+  },
+  notification_email: {
+    label: 'Contact Form Notification Email',
+    description: 'When someone submits the contact form, a copy is sent to this email address. It is not shown anywhere on the public site.',
+    type: 'email',
   },
 };
 
@@ -127,11 +132,11 @@ export default function AdminSettings() {
                   ) : (
                     <div className="flex items-center gap-2">
                       <input
-                        type="text"
+                        type={meta.type === 'email' ? 'email' : 'text'}
                         defaultValue={typeof value === 'string' ? value : ''}
                         onBlur={(e) => updateSetting(key, e.target.value || null)}
-                        className="admin-input w-48 text-xs"
-                        placeholder="null (disabled)"
+                        className="admin-input w-64 text-xs"
+                        placeholder={meta.type === 'email' ? 'you@example.com' : 'null (disabled)'}
                       />
                       {isSaving && <span className="w-4 h-4 border-2 border-brand-green border-t-transparent rounded-full animate-spin" />}
                     </div>

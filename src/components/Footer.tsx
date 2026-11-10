@@ -70,8 +70,8 @@ export default function Footer() {
                 <img src="/Main_Logo.png" alt="Greenatech" className="h-7 w-auto" />
               </div>
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              Africa's definitive AI-first technology company. We build world-class technology,
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              An AI-first technology company based in Lagos. We build world-class technology,
               talent, and products from the ground up.
             </p>
 
@@ -79,12 +79,12 @@ export default function Footer() {
             <div className="space-y-3 mb-8">
               <a
                 href="mailto:info@greenatechglobal.com"
-                className="flex items-start gap-2.5 text-gray-500 text-sm hover:text-white transition-colors group"
+                className="flex items-start gap-2.5 text-gray-400 text-sm hover:text-white transition-colors group"
               >
                 <Mail size={14} className="mt-0.5 flex-shrink-0 text-brand-green" />
                 info@greenatechglobal.com
               </a>
-              <div className="flex items-start gap-2.5 text-gray-500 text-sm">
+              <div className="flex items-start gap-2.5 text-gray-400 text-sm">
                 <MapPin size={14} className="mt-0.5 flex-shrink-0 text-brand-green" />
                 <span>294 Herbert Macaulay Way,<br />Yaba, Lagos</span>
               </div>
@@ -99,7 +99,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 border border-brand-border flex items-center justify-center text-gray-500 hover:text-white hover:border-gray-500 transition-all duration-200"
+                  className="w-9 h-9 border border-brand-border flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all duration-200"
                 >
                   <Icon size={14} />
                 </a>
@@ -123,7 +123,7 @@ export default function Footer() {
                         <li key={label}>
                           <Link
                             to={to}
-                            className="text-gray-500 text-sm hover:text-white transition-colors duration-200"
+                            className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                           >
                             {label}
                           </Link>
@@ -142,17 +142,17 @@ export default function Footer() {
       <div className="border-t border-brand-border">
         <div className="max-w-screen-xl mx-auto px-6 lg:px-10 py-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p className="text-gray-600 text-xs">
+            <p className="text-gray-500 text-xs">
               © {new Date().getFullYear()} Greenatech Global. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link to="/privacy-policy" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+              <Link to="/privacy-policy" className="text-gray-500 text-xs hover:text-gray-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/cookie-policy" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+              <Link to="/cookie-policy" className="text-gray-500 text-xs hover:text-gray-400 transition-colors">
                 Cookie Policy
               </Link>
-              <Link to="/terms-of-service" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
+              <Link to="/terms-of-service" className="text-gray-500 text-xs hover:text-gray-400 transition-colors">
                 Terms
               </Link>
             </div>

@@ -99,14 +99,14 @@ export default function ProductsPage() {
                   <span className="text-xs text-brand-green font-semibold uppercase tracking-widest">
                     {product.category}
                   </span>
-                  <span className={`text-xs px-2.5 py-1 border ${product.status === 'Live' ? 'border-brand-green/30 text-brand-green' : 'border-brand-border text-gray-500'}`}>
+                  <span className={`text-xs px-2.5 py-1 border ${product.status === 'Live' ? 'border-brand-green/30 text-brand-green' : 'border-brand-border text-gray-400'}`}>
                     {product.status}
                   </span>
                 </div>
                 <h3 className="text-xl font-black text-white mb-3 group-hover:text-brand-green transition-colors duration-200">
                   {product.name}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
+                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
                   {product.description}
                 </p>
                 {product.href && (
@@ -124,7 +124,7 @@ export default function ProductsPage() {
                   {product.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-600 border border-brand-border px-2.5 py-1"
+                      className="text-xs text-gray-500 border border-brand-border px-2.5 py-1"
                     >
                       {tag}
                     </span>

@@ -91,7 +91,7 @@ export default function Navbar() {
                         </Link>
                       )}
                       <div className="px-4 py-3 border-b border-brand-border">
-                        <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                        <p className="text-xs text-gray-400 truncate">{user.email}</p>
                         {adminRole && (
                           <span className="text-xs text-brand-green capitalize font-semibold">
                             {adminRole.replace('_', ' ')}
@@ -130,7 +130,7 @@ export default function Navbar() {
                 to={CONTACT_FORM}
                 className="bg-brand-green text-black text-sm font-semibold px-6 py-2.5 hover:bg-lime-400 transition-colors duration-200 ml-1"
               >
-                Work with us
+                Book a call
               </Link>
             </div>
 
@@ -201,7 +201,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="block bg-brand-green text-black text-sm font-semibold px-6 py-3 text-center hover:bg-lime-400 transition-colors"
                 >
-                  Work with us
+                  Book a call
                 </Link>
               </div>
             </div>

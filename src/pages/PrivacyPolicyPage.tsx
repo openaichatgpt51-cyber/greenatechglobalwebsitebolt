@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       description="How Greenatech collects, uses, and protects your personal information when you use our website and services."
     >
-      <p className="text-gray-500 text-sm mb-10">Last updated: October 8, 2026</p>
+      <p className="text-gray-400 text-sm mb-10">Last updated: October 8, 2026</p>
 
       <h2>1. Information We Collect</h2>
       <p>

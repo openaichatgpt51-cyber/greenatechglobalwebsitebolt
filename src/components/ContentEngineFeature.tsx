@@ -29,7 +29,7 @@ export default function ContentEngineFeature() {
             <span className="text-white">Content</span>
             <span style={{ color: GOLD }}>Engine</span>
           </h3>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
             AI social media dashboard
           </p>
 
@@ -41,7 +41,7 @@ export default function ContentEngineFeature() {
 
           <div className="mt-6 flex flex-wrap gap-1.5">
             {['AI / Content', 'Automation', 'Social Media'].map((tag) => (
-              <span key={tag} className="text-xs text-gray-500 border border-brand-border px-2.5 py-1">
+              <span key={tag} className="text-xs text-gray-400 border border-brand-border px-2.5 py-1">
                 {tag}
               </span>
             ))}
@@ -80,7 +80,7 @@ export default function ContentEngineFeature() {
                 className="hidden sm:block absolute bottom-0 right-0 w-[46%] h-auto border border-brand-border shadow-2xl"
               />
             </div>
-            <figcaption className="mt-4 text-xs text-gray-600">
+            <figcaption className="mt-4 text-xs text-gray-500">
               Sample output from the ContentEngine dashboard (demo account).
             </figcaption>
           </figure>

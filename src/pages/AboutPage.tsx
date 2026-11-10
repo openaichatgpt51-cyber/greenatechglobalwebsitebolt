@@ -6,11 +6,10 @@ import Footer from '../components/Footer';
 import { CONTACT_FORM } from '../lib/links';
 
 const milestones = [
-  { year: '2015', title: 'Founded in Lagos', desc: 'Greenatech begins as a small engineering team with a bold vision for African technology.' },
-  { year: '2018', title: 'First Enterprise Clients', desc: 'We deliver cloud and AI solutions to leading enterprises across Nigeria and West Africa.' },
+  { year: '2018', title: 'Founded in Lagos', desc: 'Greenatech is founded in Lagos with a bold vision for African technology.' },
   { year: '2021', title: 'Next Generation Hub Launches', desc: "Our youth training initiative opens, beginning our mission to build Africa's tech talent pipeline." },
-  { year: '2023', title: 'Standalone Products Division', desc: 'We launch our own portfolio of AI-powered products for the global digital economy.' },
-  { year: '2025', title: 'Scaling Across Africa', desc: 'A self-reinforcing innovation engine operating across three strategic pillars.' },
+  { year: '2023', title: 'Standalone Products Division', desc: 'We begin building our own portfolio of AI-powered products for the global digital economy.' },
+  { year: '2026', title: 'First Enterprise Engagements', desc: 'We open discovery calls and pilot engagements with our first enterprise partners, with ContentEngine as our first product.' },
 ];
 
 const values = [
@@ -68,7 +67,7 @@ export default function AboutPage() {
                   "We are the definitive force helping organisations automate, secure, and scale. We ensure
                   enterprises don't just participate in the global digital economy, but lead it."
                 </p>
-                <cite className="block mt-4 text-sm text-gray-500 not-italic">
+                <cite className="block mt-4 text-sm text-gray-400 not-italic">
                   Greenatech Leadership
                 </cite>
               </blockquote>
@@ -98,7 +97,7 @@ export default function AboutPage() {
                   <Icon size={20} className="text-brand-green" />
                 </div>
                 <h3 className="text-lg font-black text-white mb-3">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -125,7 +124,7 @@ export default function AboutPage() {
                 <div className="text-3xl font-black text-brand-green">{m.year}</div>
                 <div className="sm:col-span-3">
                   <h3 className="text-lg font-bold text-white mb-2">{m.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{m.desc}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">{m.desc}</p>
                 </div>
               </div>
             ))}

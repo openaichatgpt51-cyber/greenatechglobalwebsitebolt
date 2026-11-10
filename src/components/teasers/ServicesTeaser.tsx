@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Cloud, Brain, Shield, Zap } from 'lucide-react';
 
 const services = [
-  { icon: Cloud, title: 'Cloud Solutions', desc: 'Architecture optimized for 99.99% uptime and seamless migration.', color: 'text-sky-400' },
+  { icon: Cloud, title: 'Cloud Solutions', desc: 'Architecture designed for high availability and seamless migration.', color: 'text-sky-400' },
   { icon: Brain, title: 'AI & Machine Learning', desc: 'Custom models and predictive analytics that automate operations.', color: 'text-brand-green' },
   { icon: Shield, title: 'Cybersecurity', desc: 'Proactive, end-to-end security with zero-trust architecture.', color: 'text-amber-400' },
   { icon: Zap, title: 'Digital Transformation', desc: 'Modernize legacy systems with intelligent workflows.', color: 'text-rose-400' },
@@ -50,7 +50,7 @@ export default function ServicesTeaser() {
                 <Icon size={20} />
               </div>
               <h3 className="text-base font-black text-white mb-3">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

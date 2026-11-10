@@ -8,10 +8,10 @@ import { CONTACT_FORM } from '../lib/links';
 const services = [
   {
     icon: Cloud,
-    metric: '40%',
-    metricLabel: 'average cost reduction',
+    metric: '01',
+    metricLabel: 'Cloud & infrastructure',
     title: 'Cloud Solutions',
-    description: 'Build, deploy, and scale on architecture optimized for 99.99% uptime, security, and seamless migration — including hybrid and low-bandwidth configurations for African infrastructure environments.',
+    description: 'Build, deploy, and scale on architecture designed for high availability, security, and seamless migration — including hybrid and low-bandwidth configurations for African infrastructure environments.',
     features: ['AWS & Azure architecture', 'Kubernetes & container orchestration', 'CI/CD pipeline automation', 'Serverless & microservices', 'Cloud cost optimisation', 'Disaster recovery planning'],
     color: 'text-sky-400',
     borderColor: 'hover:border-sky-500/40',
@@ -19,8 +19,8 @@ const services = [
   },
   {
     icon: Brain,
-    metric: '3x',
-    metricLabel: 'faster business insights',
+    metric: '02',
+    metricLabel: 'Models & automation',
     title: 'AI & Machine Learning',
     description: 'Deploy custom models and predictive analytics that automate complex operations and unlock new value.',
     features: ['Custom LLM deployment', 'Predictive analytics', 'Computer vision systems', 'AI agent workflows', 'RAG & knowledge bases', 'MLOps & model monitoring'],
@@ -30,8 +30,8 @@ const services = [
   },
   {
     icon: Shield,
-    metric: '99.9%',
-    metricLabel: 'threat prevention',
+    metric: '03',
+    metricLabel: 'Security & compliance',
     title: 'Cybersecurity',
     description: 'Implement proactive, end-to-end security with robust threat detection and zero-trust architecture.',
     features: ['Zero-trust architecture', 'Penetration testing', 'Security operations centre', 'Compliance & audit (ISO, GDPR)', 'Threat intelligence & detection', 'Incident response planning'],
@@ -41,10 +41,10 @@ const services = [
   },
   {
     icon: Zap,
-    metric: '60%',
-    metricLabel: 'operational efficiency boost',
+    metric: '04',
+    metricLabel: 'Modernisation & integration',
     title: 'Digital Transformation',
-    description: 'Map, replace, and reconnect legacy systems to modern AI-powered workflows — without disrupting live operations. We have done this in regulated industries where downtime is not an option.',
+    description: 'Map, replace, and reconnect legacy systems to modern AI-powered workflows — without disrupting live operations. We plan around environments where downtime is not an option.',
     features: ['Legacy system modernisation', 'Process automation', 'Data platform engineering', 'API & systems integration', 'Product strategy & design', 'Change management & enablement'],
     color: 'text-rose-400',
     borderColor: 'hover:border-rose-500/40',
@@ -95,7 +95,7 @@ export default function EnterpriseSolutionsPage() {
                   <div className="flex items-start justify-between mb-8">
                     <div>
                       <span className={`text-5xl font-black ${color} leading-none`}>{metric}</span>
-                      <p className="text-gray-500 text-xs mt-1 max-w-[120px] leading-snug">{metricLabel}</p>
+                      <p className="text-gray-400 text-xs mt-1 max-w-[120px] leading-snug">{metricLabel}</p>
                     </div>
                     <div className={`w-12 h-12 border border-brand-border flex items-center justify-center ${color} group-hover:border-current transition-colors duration-300`}>
                       <Icon size={20} />
@@ -107,7 +107,7 @@ export default function EnterpriseSolutionsPage() {
                     {features.map((f) => (
                       <div key={f} className="flex items-start gap-2.5">
                         <CheckCircle2 size={14} className={`${color} mt-0.5 flex-shrink-0`} />
-                        <span className="text-gray-500 text-xs">{f}</span>
+                        <span className="text-gray-400 text-xs">{f}</span>
                       </div>
                     ))}
                   </div>
@@ -138,7 +138,7 @@ export default function EnterpriseSolutionsPage() {
               <div key={num} className="bg-[#0a0a0a] p-8 group hover:bg-brand-card transition-colors duration-300">
                 <span className="text-4xl font-black text-brand-green opacity-30 mb-6 block">{num}</span>
                 <h3 className="text-lg font-black text-white mb-3">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>

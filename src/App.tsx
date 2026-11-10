@@ -12,6 +12,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import ScrollToTop from './components/ScrollToTop';
+import StickyCTA from './components/StickyCTA';
 import Analytics from './components/Analytics';
 import { OrganizationStructuredData } from './components/StructuredData';
 import { markPrerenderReady } from './lib/prerenderReady';
@@ -28,6 +29,7 @@ export default function App() {
         <OrganizationStructuredData />
         <ScrollToTop />
         <Analytics />
+        <StickyCTA />
         <Routes>
           <Route path="/admin/*" element={<AdminLayout />} />
           <Route path="/services" element={<EnterpriseSolutionsPage />} />

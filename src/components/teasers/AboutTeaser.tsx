@@ -60,7 +60,7 @@ export default function AboutTeaser() {
                   </div>
                   <div>
                     <h3 className="text-lg font-black text-white mb-2">{title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
                   </div>
                 </div>
               ))}

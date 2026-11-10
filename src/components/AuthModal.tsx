@@ -79,13 +79,13 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
             <h2 className="text-xl font-black text-white">
               {tab === 'login' ? 'Welcome back' : 'Create account'}
             </h2>
-            <p className="text-gray-500 text-xs mt-1">
+            <p className="text-gray-400 text-xs mt-1">
               {tab === 'login' ? 'Sign in to your account' : 'Join the Greenatech community'}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white transition-colors"
+            className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
           >
             <X size={16} />
           </button>
@@ -100,7 +100,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
               className={`flex-1 py-3.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
                 tab === t
                   ? 'text-brand-green border-b-2 border-brand-green'
-                  : 'text-gray-500 hover:text-gray-300'
+                  : 'text-gray-400 hover:text-gray-300'
               }`}
             >
               {t === 'login' ? 'Sign In' : 'Register'}
@@ -128,13 +128,13 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
               Email Address
             </label>
             <div className="relative">
-              <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-4 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-600"
+                className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-4 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-500"
                 placeholder="you@example.com"
               />
             </div>
@@ -145,19 +145,19 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
               Password
             </label>
             <div className="relative">
-              <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-10 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-600"
+                className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-10 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-500"
                 placeholder="••••••••"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-400"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-400"
               >
                 {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
               </button>
@@ -170,13 +170,13 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600" />
+                <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-4 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-600"
+                  className="w-full bg-[#0d0d0d] border border-[#333] text-white text-sm pl-10 pr-4 py-3 focus:outline-none focus:border-brand-green transition-colors placeholder:text-gray-500"
                   placeholder="••••••••"
                 />
               </div>
@@ -198,7 +198,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
             )}
           </button>
 
-          <p className="text-center text-xs text-gray-600">
+          <p className="text-center text-xs text-gray-500">
             {tab === 'login' ? "Don't have an account? " : 'Already have an account? '}
             <button
               type="button"

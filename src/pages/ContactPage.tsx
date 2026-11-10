@@ -173,7 +173,7 @@ export default function ContactPage() {
                 <h3 className="text-lg font-black text-white mb-2 group-hover:text-brand-green transition-colors">
                   {t.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{t.desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{t.desc}</p>
               </a>
             ))}
           </div>
@@ -207,14 +207,14 @@ export default function ContactPage() {
                 >
                   <Mail size={18} className="mt-0.5 flex-shrink-0 text-brand-green" />
                   <div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Email</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Email</div>
                     info@greenatechglobal.com
                   </div>
                 </a>
                 <div className="flex items-start gap-3 text-gray-400 text-sm">
                   <MapPin size={18} className="mt-0.5 flex-shrink-0 text-brand-green" />
                   <div>
-                    <div className="text-xs text-gray-600 uppercase tracking-wider mb-1">Office</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Office</div>
                     294 Herbert Macaulay Way,<br />Yaba, Lagos, Nigeria
                   </div>
                 </div>
@@ -281,7 +281,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                      <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                         Full name *
                       </label>
                       <input
@@ -294,7 +294,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                      <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                         Email *
                       </label>
                       <input
@@ -310,7 +310,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                      <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                         Company
                       </label>
                       <input
@@ -322,7 +322,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                      <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                         What can we help with?
                       </label>
                       <select
@@ -341,7 +341,7 @@ export default function ContactPage() {
                   {isBooking && (
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                       <div>
-                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                        <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                           Preferred date *
                         </label>
                         <input
@@ -354,7 +354,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                        <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                           Preferred time (WAT) *
                         </label>
                         <select
@@ -370,7 +370,7 @@ export default function ContactPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                        <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                           Format
                         </label>
                         <select
@@ -387,7 +387,7 @@ export default function ContactPage() {
                   )}
 
                   <div>
-                    <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                    <label className="block text-xs text-gray-400 uppercase tracking-wider mb-2">
                       {isBooking ? 'Anything we should prepare? (optional)' : 'Your message *'}
                     </label>
                     <textarea

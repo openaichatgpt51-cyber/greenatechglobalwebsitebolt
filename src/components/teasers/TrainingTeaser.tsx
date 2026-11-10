@@ -29,7 +29,7 @@ export default function TrainingTeaser() {
               </div>
               <div>
                 <h3 className="text-xl font-black text-white mb-2">Corporate Training</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed">
                   We train entire teams — not individuals. Workflow-first, measured by operational
                   outcomes, not completion rates.
                 </p>
@@ -43,7 +43,7 @@ export default function TrainingTeaser() {
               </div>
               <div>
                 <h3 className="text-xl font-black text-white mb-2">Greenatech Academy</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed">
                   Live mentors, peer cohorts, and real projects. Where African talent becomes
                   world-class — and employment-ready.
                 </p>

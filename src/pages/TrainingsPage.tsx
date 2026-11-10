@@ -148,17 +148,17 @@ export default function TrainingsPage() {
                   <span className="text-xs text-brand-green border border-brand-green/30 px-2 py-0.5">
                     {track.duration}
                   </span>
-                  <span className="text-xs text-gray-500 border border-brand-border px-2 py-0.5">
+                  <span className="text-xs text-gray-400 border border-brand-border px-2 py-0.5">
                     {track.level}
                   </span>
                 </div>
                 <h3 className="text-lg font-black text-white mb-3 group-hover:text-brand-green transition-colors">
                   {track.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{track.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">{track.description}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {track.skills.map((skill) => (
-                    <span key={skill} className="text-xs text-gray-600 bg-brand-dark border border-brand-border px-2 py-1">
+                    <span key={skill} className="text-xs text-gray-500 bg-brand-dark border border-brand-border px-2 py-1">
                       {skill}
                     </span>
                   ))}

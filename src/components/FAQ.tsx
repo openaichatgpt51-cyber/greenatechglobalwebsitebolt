@@ -46,7 +46,7 @@ export default function FAQ() {
                         {isOpen ? (
                           <Minus size={16} className="text-brand-green" />
                         ) : (
-                          <Plus size={16} className="text-gray-500 group-hover:text-white transition-colors" />
+                          <Plus size={16} className="text-gray-400 group-hover:text-white transition-colors" />
                         )}
                       </span>
                     </button>

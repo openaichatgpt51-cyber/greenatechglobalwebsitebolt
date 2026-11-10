@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { CONTACT_FORM } from '../lib/links';
 
 export default function Hero() {
   return (
@@ -21,7 +22,7 @@ export default function Hero() {
           {/* Tag line */}
           <div className="flex items-center mb-8">
             <span className="text-brand-green text-sm font-semibold uppercase tracking-widest">
-              The Definitive AI-First Technology Company
+              AI-first technology company · Lagos, Nigeria
             </span>
           </div>
 
@@ -33,24 +34,32 @@ export default function Hero() {
 
           {/* Subtext */}
           <p className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mb-12 font-light">
-            From retail operations to university systems, financial services to public sector
-            programmes, we help organisations across Africa automate what's manual, secure what's
-            exposed, and modernise what's outdated. From Lagos, for the world.
+            AI automation, cybersecurity and cloud for retail, financial services, education and
+            public-sector teams across Africa. We find the manual process costing you most, and fix
+            it. Start with a discovery call.
           </p>
 
-          {/* CTA */}
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-3 bg-brand-green text-black font-semibold px-8 py-4 hover:bg-lime-400 transition-all duration-200 group text-sm uppercase tracking-wider"
-          >
-            Explore our products
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-          </Link>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link
+              to={CONTACT_FORM}
+              className="inline-flex items-center justify-center gap-3 bg-brand-green text-black font-semibold px-8 py-4 hover:bg-lime-400 transition-all duration-200 group text-sm uppercase tracking-wider"
+            >
+              Book a discovery call
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-3 border border-white/30 text-white font-semibold px-8 py-4 hover:bg-white hover:text-brand-dark transition-all duration-200 text-sm uppercase tracking-wider"
+            >
+              See what we build
+            </Link>
+          </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-500 uppercase tracking-widest rotate-90 origin-center translate-y-4">Scroll</span>
+          <span className="text-xs text-gray-400 uppercase tracking-widest rotate-90 origin-center translate-y-4">Scroll</span>
           <div className="w-px h-16 bg-gradient-to-b from-transparent via-gray-500 to-transparent" />
         </div>
       </div>

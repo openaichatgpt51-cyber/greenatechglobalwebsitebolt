@@ -7,7 +7,7 @@ export default function TermsOfServicePage() {
       title="Terms of Service"
       description="The terms and conditions that govern your use of the Greenatech website and our digital services."
     >
-      <p className="text-gray-500 text-sm mb-10">Last updated: October 8, 2026</p>
+      <p className="text-gray-400 text-sm mb-10">Last updated: October 8, 2026</p>
 
       <h2>1. Acceptance of Terms</h2>
       <p>

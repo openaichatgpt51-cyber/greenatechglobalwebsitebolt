@@ -98,13 +98,13 @@ export default function CaseStudies() {
                   {study.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-500 border border-brand-border px-2.5 py-1"
+                      className="text-xs text-gray-400 border border-brand-border px-2.5 py-1"
                     >
                       {tag}
                     </span>
                   ))}
                   {study.tags.length > 3 && (
-                    <span className="text-xs text-gray-600 border border-brand-border px-2.5 py-1">
+                    <span className="text-xs text-gray-500 border border-brand-border px-2.5 py-1">
                       +{study.tags.length - 3}
                     </span>
                   )}

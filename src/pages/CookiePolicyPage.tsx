@@ -7,7 +7,7 @@ export default function CookiePolicyPage() {
       title="Cookie Policy"
       description="How Greenatech uses cookies and similar technologies on this website, and how you can control them."
     >
-      <p className="text-gray-500 text-sm mb-10">Last updated: October 8, 2026</p>
+      <p className="text-gray-400 text-sm mb-10">Last updated: October 8, 2026</p>
 
       <h2>1. What Are Cookies</h2>
       <p>

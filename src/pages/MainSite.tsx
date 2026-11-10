@@ -6,7 +6,7 @@ import ServicesTeaser from '../components/teasers/ServicesTeaser';
 import VentureStudio from '../components/VentureStudio';
 import CaseStudies from '../components/CaseStudies';
 import TrainingTeaser from '../components/teasers/TrainingTeaser';
-import Insights from '../components/Insights';
+import MidCTA from '../components/MidCTA';
 import CTADuo from '../components/CTADuo';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
@@ -29,10 +29,10 @@ export default function MainSite() {
       <Hero />
       <AboutTeaser />
       <ServicesTeaser />
+      <MidCTA />
       {ventureStudioEnabled && <VentureStudio />}
       <CaseStudies />
       <TrainingTeaser />
-      <Insights />
       <CTADuo />
       <FAQ />
       <FAQStructuredData />

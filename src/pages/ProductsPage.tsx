@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import ContentEngineFeature from '../components/ContentEngineFeature';
 
 const products: {
   name: string;
@@ -13,15 +14,6 @@ const products: {
   href?: string;
   hrefLabel?: string;
 }[] = [
-  {
-    name: 'ContentEngine',
-    category: 'AI / Content Automation',
-    description: 'AI-powered social media content automation for enterprise teams: plan, generate, and publish on-brand content at scale without the manual back-and-forth.',
-    tags: ['AI', 'Content', 'Automation'],
-    status: 'Coming soon',
-    href: 'https://contentengine.social',
-    hrefLabel: 'contentengine.social',
-  },
   {
     name: 'Workflow Automation Engine',
     category: 'AI / Automation',
@@ -93,6 +85,8 @@ export default function ProductsPage() {
               product we ship makes the stack stronger for all the others.
             </p>
           </div>
+
+          <ContentEngineFeature />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border">
             {products.map((product) => (

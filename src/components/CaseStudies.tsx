@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { supabase, CaseStudy } from '../lib/supabase';
 import { registerPrerenderTask } from '../lib/prerenderReady';
+import ContentEngineFeature from './ContentEngineFeature';
 
 const fallback: Pick<CaseStudy, 'title' | 'tags' | 'image_url'>[] = [
   {
@@ -73,41 +74,11 @@ export default function CaseStudies() {
           </div>
         </div>
 
+        {/* Featured: ContentEngine always leads the portfolio */}
+        <ContentEngineFeature />
+
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border">
-          {/* Featured: ContentEngine always leads the portfolio */}
-          <a
-            href="https://contentengine.social"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#0a0a0a] group overflow-hidden flex flex-col"
-          >
-            <div className="aspect-video relative flex items-center justify-center bg-gradient-to-br from-[#063D30] to-[#0a0a0a]">
-              <span className="text-3xl lg:text-4xl font-black text-brand-green tracking-tight">
-                ContentEngine
-              </span>
-              <span className="absolute top-4 right-4 text-xs font-semibold text-brand-green border border-brand-green/40 px-2.5 py-1">
-                Coming soon
-              </span>
-            </div>
-            <div className="p-6 lg:p-7">
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {['AI / Content', 'Automation', 'Social Media'].map((tag) => (
-                  <span key={tag} className="text-xs text-gray-500 border border-brand-border px-2.5 py-1">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 className="text-base font-bold text-white leading-snug group-hover:text-brand-green transition-colors duration-200">
-                ContentEngine — AI-powered social media content automation for enterprise teams
-              </h3>
-              <div className="mt-4 flex items-center gap-2 text-brand-green text-sm font-semibold">
-                contentengine.social
-                <ArrowUpRight size={13} />
-              </div>
-            </div>
-          </a>
-
           {cards.map((study) => (
             <article key={study.id} className="bg-[#0a0a0a] group cursor-pointer overflow-hidden">
               {/* Image */}

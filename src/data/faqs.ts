@@ -5,11 +5,11 @@ export const faqs = [
   },
   {
     q: 'Which industries do you work with?',
-    a: 'We work with organisations in retail and e-commerce, higher education, financial services, professional services, media, and the public sector. Our focus is on African organisations that are ready to modernise through AI, automation, and stronger cybersecurity.',
+    a: 'We focus on organisations in retail and e-commerce, higher education, financial services, professional services, media, and the public sector. Our focus is on African organisations that are ready to modernise through AI, automation, and stronger cybersecurity.',
   },
   {
     q: 'Where are you located and where do you work?',
-    a: 'Our headquarters are at 294 Herbert Macaulay Way, Yaba, Lagos. We operate with a distributed team and partner with clients across Africa and beyond, supporting seamless remote collaboration across time zones.',
+    a: 'Our headquarters are at 294 Herbert Macaulay Way, Yaba, Lagos. We are a small, focused team and work with organisations across Africa and beyond, with remote collaboration across time zones.',
   },
   {
     q: 'What does the build and delivery phase involve?',
@@ -29,6 +29,6 @@ export const faqs = [
   },
   {
     q: 'How does a project typically begin?',
-    a: 'Most enterprise clients start with an AI Readiness Audit, a focused assessment of where automation can reduce cost, eliminate manual work, or close security vulnerabilities. From there, we scope and build. Some clients move fast with a single workflow; others engage us across the full stack of their operations.',
+    a: 'We start with a discovery call, then a focused readiness assessment of where automation can reduce cost, eliminate manual work, or close security vulnerabilities. From there we scope a pilot, usually a single workflow, and build on it as it proves its value. We are taking on our first enterprise partners now, so early partners get direct access to the founding team.',
   },
 ];

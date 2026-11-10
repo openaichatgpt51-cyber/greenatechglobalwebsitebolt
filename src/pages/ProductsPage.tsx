@@ -4,7 +4,24 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 
-const products = [
+const products: {
+  name: string;
+  category: string;
+  description: string;
+  tags: string[];
+  status: string;
+  href?: string;
+  hrefLabel?: string;
+}[] = [
+  {
+    name: 'ContentEngine',
+    category: 'AI / Content Automation',
+    description: 'AI-powered social media content automation for enterprise teams: plan, generate, and publish on-brand content at scale without the manual back-and-forth.',
+    tags: ['AI', 'Content', 'Automation'],
+    status: 'Coming soon',
+    href: 'https://contentengine.social',
+    hrefLabel: 'contentengine.social',
+  },
   {
     name: 'Workflow Automation Engine',
     category: 'AI / Automation',
@@ -97,6 +114,17 @@ export default function ProductsPage() {
                 <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">
                   {product.description}
                 </p>
+                {product.href && (
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-brand-green text-sm font-semibold mb-5 hover:underline"
+                  >
+                    {product.hrefLabel ?? product.href}
+                    <ArrowUpRight size={14} />
+                  </a>
+                )}
                 <div className="flex flex-wrap gap-1.5">
                   {product.tags.map((tag) => (
                     <span

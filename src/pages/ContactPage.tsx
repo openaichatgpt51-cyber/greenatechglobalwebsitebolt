@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ArrowRight, Mail, MapPin, CheckCircle2, AlertCircle } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import Navbar from '../components/Navbar';
@@ -17,19 +17,39 @@ const services = [
   'General Enquiry',
 ];
 
-const enquiryTypes = [
-  { title: 'Work with us', desc: "Have a challenge? We'll engineer the solution.", href: '#contact-form' },
-  { title: 'Grow your career', desc: 'Join our mission-driven collective.', href: '#contact-form' },
-  { title: 'General enquiries', desc: 'Questions about our company or products.', href: '#contact-form' },
+const timeSlots = [
+  { value: '09:00', label: '9:00 AM' },
+  { value: '10:00', label: '10:00 AM' },
+  { value: '11:00', label: '11:00 AM' },
+  { value: '12:00', label: '12:00 PM' },
+  { value: '14:00', label: '2:00 PM' },
+  { value: '15:00', label: '3:00 PM' },
+  { value: '16:00', label: '4:00 PM' },
+];
+
+const meetingFormats = ['Video call', 'Phone call', 'In person (Yaba, Lagos)'];
+
+type RequestType = 'enquiry' | 'booking';
+
+const enquiryTypes: { title: string; desc: string; href: string; requestType?: RequestType }[] = [
+  { title: 'Book a discovery call', desc: 'Pick a time and we will confirm it by email.', href: '#contact-form', requestType: 'booking' },
+  { title: 'Work with us', desc: "Have a challenge? We'll engineer the solution.", href: '#contact-form', requestType: 'enquiry' },
+  { title: 'Grow your career', desc: 'Join our mission-driven collective.', href: '#contact-form', requestType: 'enquiry' },
+  { title: 'General enquiries', desc: 'Questions about our company or products.', href: '#contact-form', requestType: 'enquiry' },
 ];
 
 export default function ContactPage() {
   const [form, setForm] = useState({
+    requestType: 'enquiry' as RequestType,
     name: '',
     email: '',
     company: '',
     service: '',
     message: '',
+    date: '',
+    time: '',
+    format: meetingFormats[0],
+    website: '', // honeypot: real visitors never fill this in
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -38,17 +58,56 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  const isBooking = form.requestType === 'booking';
+
+  // Earliest bookable day is tomorrow (Africa/Lagos weekdays only, enforced on submit)
+  const minDate = useMemo(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().slice(0, 10);
+  }, []);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus('submitting');
     setErrorMsg('');
+
+    // Honeypot: bots fill hidden fields. Pretend success and drop it.
+    if (form.website) {
+      setStatus('success');
+      return;
+    }
+
+    if (isBooking) {
+      const day = new Date(`${form.date}T12:00:00`).getDay();
+      if (!form.date || !form.time) {
+        setStatus('error');
+        setErrorMsg('Please choose a preferred date and time.');
+        return;
+      }
+      if (day === 0 || day === 6) {
+        setStatus('error');
+        setErrorMsg('We take calls on weekdays. Please choose a Monday to Friday date.');
+        return;
+      }
+    }
+
+    setStatus('submitting');
+
+    const timeLabel = timeSlots.find((t) => t.value === form.time)?.label ?? form.time;
+    const bookingLine = isBooking
+      ? `BOOKING REQUEST: ${form.date} at ${timeLabel} WAT (${form.format})`
+      : null;
+    const fullMessage = [bookingLine, form.message.trim()].filter(Boolean).join('\n\n');
+    const serviceValue = isBooking
+      ? `Discovery call${form.service ? ` - ${form.service}` : ''}`
+      : form.service || null;
 
     const { error } = await supabase.from('contact_submissions').insert({
       name: form.name,
       email: form.email,
       company: form.company || null,
-      service: form.service || null,
-      message: form.message,
+      service: serviceValue,
+      message: fullMessage,
     });
 
     if (error) {
@@ -57,6 +116,7 @@ export default function ContactPage() {
       return;
     }
 
+    // The submission is already saved above; the email notification is best-effort.
     fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-notification`, {
       method: 'POST',
       headers: {
@@ -67,13 +127,26 @@ export default function ContactPage() {
         name: form.name,
         email: form.email,
         company: form.company || null,
-        service: form.service || null,
-        message: form.message,
+        service: serviceValue,
+        message: fullMessage,
+        request_type: form.requestType,
+        preferred_date: isBooking ? form.date : null,
+        preferred_time: isBooking ? timeLabel : null,
+        meeting_format: isBooking ? form.format : null,
       }),
     }).catch(() => {});
 
     setStatus('success');
-    setForm({ name: '', email: '', company: '', service: '', message: '' });
+    setForm((prev) => ({
+      ...prev,
+      name: '',
+      email: '',
+      company: '',
+      service: '',
+      message: '',
+      date: '',
+      time: '',
+    }));
   }
 
   return (
@@ -89,11 +162,12 @@ export default function ContactPage() {
       {/* Enquiry type cards */}
       <section className="py-16 lg:py-20 bg-brand-dark">
         <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-border">
             {enquiryTypes.map((t) => (
               <a
                 key={t.title}
                 href={t.href}
+                onClick={() => t.requestType && updateField('requestType', t.requestType)}
                 className="bg-brand-dark p-8 group hover:bg-brand-card transition-colors duration-300"
               >
                 <h3 className="text-lg font-black text-white mb-2 group-hover:text-brand-green transition-colors">
@@ -154,19 +228,57 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-brand-green/10 border border-brand-green/30 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 size={28} className="text-brand-green" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-3">Message received.</h3>
+                  <h3 className="text-2xl font-black text-white mb-3">
+                    {isBooking ? 'Request received.' : 'Message received.'}
+                  </h3>
                   <p className="text-gray-400 leading-relaxed mb-8 max-w-md mx-auto">
-                    Thank you for reaching out. We'll get back to you within 24 hours.
+                    {isBooking
+                      ? "Thank you. We'll confirm your slot, or suggest the nearest alternative, by email within 24 hours."
+                      : "Thank you for reaching out. We'll get back to you within 24 hours."}
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
                     className="inline-flex items-center gap-2 border border-white/20 text-white text-sm font-semibold px-6 py-3 hover:bg-white hover:text-brand-dark transition-all duration-200"
                   >
-                    Send another message
+                    Send another request
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-2 gap-px bg-brand-border" role="group" aria-label="Request type">
+                    {([
+                      { value: 'enquiry', label: 'Make an enquiry' },
+                      { value: 'booking', label: 'Book a discovery call' },
+                    ] as { value: RequestType; label: string }[]).map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => updateField('requestType', opt.value)}
+                        aria-pressed={form.requestType === opt.value}
+                        className={`px-4 py-3.5 text-sm font-semibold transition-colors ${
+                          form.requestType === opt.value
+                            ? 'bg-brand-green text-black'
+                            : 'bg-brand-dark text-gray-400 hover:text-white'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="hidden" aria-hidden="true">
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={form.website}
+                        onChange={(e) => updateField('website', e.target.value)}
+                      />
+                    </label>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
@@ -226,17 +338,65 @@ export default function ContactPage() {
                     </div>
                   </div>
 
+                  {isBooking && (
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                      <div>
+                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                          Preferred date *
+                        </label>
+                        <input
+                          type="date"
+                          required
+                          min={minDate}
+                          value={form.date}
+                          onChange={(e) => updateField('date', e.target.value)}
+                          className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                          Preferred time (WAT) *
+                        </label>
+                        <select
+                          required
+                          value={form.time}
+                          onChange={(e) => updateField('time', e.target.value)}
+                          className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors"
+                        >
+                          <option value="">Select a time</option>
+                          {timeSlots.map((t) => (
+                            <option key={t.value} value={t.value}>{t.label}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
+                          Format
+                        </label>
+                        <select
+                          value={form.format}
+                          onChange={(e) => updateField('format', e.target.value)}
+                          className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors"
+                        >
+                          {meetingFormats.map((f) => (
+                            <option key={f} value={f}>{f}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-xs text-gray-500 uppercase tracking-wider mb-2">
-                      Your message *
+                      {isBooking ? 'Anything we should prepare? (optional)' : 'Your message *'}
                     </label>
                     <textarea
-                      required
-                      rows={6}
+                      required={!isBooking}
+                      rows={isBooking ? 4 : 6}
                       value={form.message}
                       onChange={(e) => updateField('message', e.target.value)}
                       className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors resize-none"
-                      placeholder="Tell us about your challenge, goals, or question..."
+                      placeholder={isBooking ? 'A line or two on what you would like to cover...' : 'Tell us about your challenge, goals, or question...'}
                     />
                   </div>
 
@@ -252,7 +412,7 @@ export default function ContactPage() {
                     disabled={status === 'submitting'}
                     className="inline-flex items-center gap-3 bg-brand-green text-black text-sm font-semibold px-8 py-4 hover:bg-lime-400 transition-colors duration-200 group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === 'submitting' ? 'Sending...' : 'Share your challenge'}
+                    {status === 'submitting' ? 'Sending...' : isBooking ? 'Request this time' : 'Share your challenge'}
                     {status !== 'submitting' && (
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
                     )}

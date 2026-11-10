@@ -181,7 +181,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact form + info */}
-      <section id="contact-form" className="py-24 lg:py-32 bg-[#0a0a0a]">
+      <section id="contact-form" className="py-24 lg:py-32 bg-[#0a0a0a] scroll-mt-20">
         <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
@@ -350,7 +350,7 @@ export default function ContactPage() {
                           min={minDate}
                           value={form.date}
                           onChange={(e) => updateField('date', e.target.value)}
-                          className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors"
+                          className="w-full bg-brand-dark border border-brand-border text-white text-sm px-4 py-3.5 outline-none focus:border-brand-green transition-colors [color-scheme:dark]"
                         />
                       </div>
                       <div>

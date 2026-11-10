@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import ContentEngineFeature from '../components/ContentEngineFeature';
+import { CONTACT_FORM } from '../lib/links';
 
 const products: {
   name: string;
@@ -148,7 +149,7 @@ export default function ProductsPage() {
               </p>
             </div>
             <Link
-              to="/contact"
+              to={CONTACT_FORM}
               className="inline-flex items-center gap-3 bg-brand-green text-black text-sm font-semibold px-8 py-4 hover:bg-lime-400 transition-colors duration-200 group whitespace-nowrap"
             >
               Start a conversation

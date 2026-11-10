@@ -3,9 +3,11 @@ import { Menu, X, LogIn, UserPlus, LogOut, User, Shield } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
 import { Link, useNavigate } from 'react-router-dom';
+import { CONTACT_FORM } from '../lib/links';
 
 const navLinks = [
   { label: 'Enterprise Solutions', to: '/services' },
+  { label: 'Products', to: '/products' },
   { label: 'Training', to: '/training' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
@@ -53,7 +55,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -125,7 +127,7 @@ export default function Navbar() {
                 </>
               )}
               <Link
-                to="/contact"
+                to={CONTACT_FORM}
                 className="bg-brand-green text-black text-sm font-semibold px-6 py-2.5 hover:bg-lime-400 transition-colors duration-200 ml-1"
               >
                 Work with us
@@ -195,7 +197,7 @@ export default function Navbar() {
                   </div>
                 )}
                 <Link
-                  to="/contact"
+                  to={CONTACT_FORM}
                   onClick={() => setMobileOpen(false)}
                   className="block bg-brand-green text-black text-sm font-semibold px-6 py-3 text-center hover:bg-lime-400 transition-colors"
                 >

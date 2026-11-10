@@ -3,6 +3,7 @@ import { ArrowRight, Building2, GraduationCap, CheckCircle2 } from 'lucide-react
 import PageHero from '../components/PageHero';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { CONTACT_FORM } from '../lib/links';
 
 const corporateCourses = [
   'Cloud Architecture & DevOps',
@@ -105,7 +106,7 @@ export default function TrainingsPage() {
           </div>
 
           <Link
-            to="/contact"
+            to={CONTACT_FORM}
             className="inline-flex items-center gap-2 bg-brand-green text-black text-sm font-semibold px-7 py-3.5 hover:bg-lime-400 transition-colors duration-200 group"
           >
             Request a corporate programme
@@ -168,7 +169,7 @@ export default function TrainingsPage() {
 
           <div className="mt-12">
             <Link
-              to="/contact"
+              to={CONTACT_FORM}
               className="inline-flex items-center gap-2 border border-white/20 text-white text-sm font-semibold px-7 py-3.5 hover:bg-white hover:text-brand-dark transition-all duration-200 group"
             >
               Enrol now

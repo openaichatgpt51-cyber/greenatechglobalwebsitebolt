@@ -40,7 +40,7 @@ export default function Hero() {
 
           {/* CTA */}
           <Link
-            to="/services"
+            to="/products"
             className="inline-flex items-center gap-3 bg-brand-green text-black font-semibold px-8 py-4 hover:bg-lime-400 transition-all duration-200 group text-sm uppercase tracking-wider"
           >
             Explore our products

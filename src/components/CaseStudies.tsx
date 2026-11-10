@@ -80,7 +80,7 @@ export default function CaseStudies() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-border">
           {cards.map((study) => (
-            <article key={study.id} className="bg-[#0a0a0a] group cursor-pointer overflow-hidden">
+            <article key={study.id} className="bg-[#0a0a0a] group overflow-hidden">
               {/* Image */}
               <div className="overflow-hidden aspect-video relative">
                 <img
@@ -98,7 +98,7 @@ export default function CaseStudies() {
                   {study.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-500 border border-brand-border px-2.5 py-1 hover:border-gray-600 hover:text-gray-400 transition-colors cursor-pointer"
+                      className="text-xs text-gray-500 border border-brand-border px-2.5 py-1"
                     >
                       {tag}
                     </span>
@@ -114,10 +114,6 @@ export default function CaseStudies() {
                   {study.title}
                 </h3>
 
-                <div className="mt-4 flex items-center gap-2 text-brand-green text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  Explore product
-                  <ArrowRight size={13} />
-                </div>
               </div>
             </article>
           ))}

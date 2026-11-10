@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { CONTACT_FORM } from '../lib/links';
 
 export default function CTADuo() {
   return (
@@ -31,7 +32,7 @@ export default function CTADuo() {
                   Tell us what's wrong. We'll tell you what's possible.
                 </p>
                 <Link
-                  to="/contact"
+                  to={CONTACT_FORM}
                   className="inline-flex items-center gap-3 bg-brand-green text-black text-sm font-semibold px-7 py-3.5 hover:bg-lime-400 transition-colors duration-200 group/btn"
                 >
                   Share Your Challenge
@@ -65,7 +66,7 @@ export default function CTADuo() {
                   with a team that takes them seriously, we want to hear from you.
                 </p>
                 <Link
-                  to="/contact"
+                  to={CONTACT_FORM}
                   className="inline-flex items-center gap-3 border border-white/30 text-white text-sm font-semibold px-7 py-3.5 hover:bg-white hover:text-brand-dark transition-all duration-200 group/btn"
                 >
                   Grow Your Career

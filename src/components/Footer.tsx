@@ -1,5 +1,6 @@
-import { Linkedin, Twitter, Instagram, Youtube, ArrowRight, MapPin, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, ArrowRight, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { CONTACT_FORM } from '../lib/links';
 
 const footerLinks = {
   Services: [
@@ -12,7 +13,7 @@ const footerLinks = {
   Company: [
     { label: 'About Us', to: '/about' },
     { label: 'Our Products', to: '/products' },
-    { label: 'Careers', to: '/contact' },
+    { label: 'Careers', to: CONTACT_FORM },
     { label: 'Greenatech Academy', to: '/training' },
   ],
   Training: [
@@ -28,10 +29,9 @@ const footerLinks = {
 };
 
 const socials = [
-  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { Icon: Twitter, href: '#', label: 'Twitter' },
-  { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Youtube, href: '#', label: 'YouTube' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/company/greenatech-global/', label: 'LinkedIn' },
+  { Icon: Twitter, href: 'https://x.com/greenatechglobe', label: 'X (Twitter)' },
+  { Icon: Instagram, href: 'https://www.instagram.com/greenatechglobal/', label: 'Instagram' },
 ];
 
 export default function Footer() {
@@ -50,7 +50,7 @@ export default function Footer() {
               </p>
             </div>
             <Link
-              to="/contact"
+              to={CONTACT_FORM}
               className="inline-flex items-center gap-3 bg-brand-green text-black text-sm font-semibold px-8 py-4 hover:bg-lime-400 transition-colors duration-200 group whitespace-nowrap"
             >
               Say hello
@@ -96,6 +96,8 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 border border-brand-border flex items-center justify-center text-gray-500 hover:text-white hover:border-gray-500 transition-all duration-200"
                 >

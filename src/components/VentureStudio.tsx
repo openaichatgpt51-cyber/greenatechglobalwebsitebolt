@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight, Lightbulb, Rocket, TrendingUp } from 'lucide-react';
+import { CONTACT_FORM } from '../lib/links';
 
 const stages = [
   {
@@ -48,13 +50,13 @@ export default function VentureStudio() {
               and iteration. No black-box handoffs.
             </p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            to={CONTACT_FORM}
             className="inline-flex items-center gap-2 text-white text-sm font-semibold border-b border-brand-green pb-0.5 hover:text-brand-green transition-colors duration-200 group whitespace-nowrap"
           >
             Start building
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-border">

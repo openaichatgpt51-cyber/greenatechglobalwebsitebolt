@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-
 const insights = [
   {
     title: 'The question that determines whether an AI project succeeds',
@@ -60,13 +58,6 @@ export default function Insights() {
               realities, and the hard lessons from building our own products. No content marketing.
               No trend-chasing. Just the things worth saying.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-white text-sm font-semibold border-b border-brand-green pb-0.5 hover:text-brand-green transition-colors duration-200 group"
-            >
-              Get inspired
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
-            </a>
           </div>
         </div>
 
@@ -77,7 +68,7 @@ export default function Insights() {
             return (
               <article
                 key={item.title}
-                className={`bg-brand-dark group cursor-pointer ${isFeatured ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                className={`bg-brand-dark group ${isFeatured ? 'lg:col-span-2 lg:row-span-2' : ''}`}
               >
                 <div className={`overflow-hidden relative ${isFeatured ? 'aspect-[4/3]' : 'aspect-video'}`}>
                   <img
@@ -100,12 +91,6 @@ export default function Insights() {
                   >
                     {item.title}
                   </h3>
-                  {isFeatured && (
-                    <div className="mt-5 flex items-center gap-2 text-brand-green text-sm font-semibold group-hover:gap-3 transition-all duration-200">
-                      Read article
-                      <ArrowRight size={14} />
-                    </div>
-                  )}
                 </div>
               </article>
             );

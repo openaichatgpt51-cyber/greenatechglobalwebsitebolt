@@ -81,6 +81,9 @@ const ROUTES = [
   },
 ];
 
+const SITE_URL = 'https://greenatechglobal.com';
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 const READY_TIMEOUT = 15000;
 const MIME = {
   '.html': 'text/html',
@@ -134,7 +137,7 @@ function startStaticServer(root, port) {
 }
 
 function injectMeta(page, route) {
-  return page.evaluate((meta) => {
+  return page.evaluate((meta, siteUrl, ogImage) => {
     document.title = meta.title;
 
     function setMeta(attr, key, content) {
@@ -152,7 +155,20 @@ function injectMeta(page, route) {
     setMeta('property', 'og:description', meta.ogDescription);
     setMeta('property', 'og:type', 'website');
     setMeta('name', 'twitter:card', 'summary_large_image');
-  }, route);
+    setMeta('property', 'og:image', ogImage);
+    setMeta('name', 'twitter:image', ogImage);
+
+    const pageUrl = meta.path === '/' ? `${siteUrl}/` : `${siteUrl}${meta.path}`;
+    setMeta('property', 'og:url', pageUrl);
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', pageUrl);
+  }, route, SITE_URL, OG_IMAGE);
 }
 
 async function waitForReady(page) {

@@ -47,7 +47,11 @@ export function OrganizationStructuredData() {
         addressCountry: 'NG',
       },
       email: 'info@greenatechglobal.com',
-      sameAs: [],
+      sameAs: [
+        'https://www.linkedin.com/company/greenatech-global/',
+        'https://www.instagram.com/greenatechglobal/',
+        'https://x.com/greenatechglobe',
+      ],
     };
 
     document.head.querySelectorAll('script[data-schema="organization"]').forEach((el) => el.remove());

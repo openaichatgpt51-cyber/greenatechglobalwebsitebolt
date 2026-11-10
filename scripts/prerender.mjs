@@ -19,7 +19,7 @@ const ROUTES = [
   {
     path: '/',
     title: 'Greenatech | AI-Powered Digital Transformation',
-    description: 'Greenatech builds enterprise-grade digital infrastructure, world-class technical talent, and AI-powered products for forward-thinking organisations.',
+    description: 'We help African organisations automate manual work, secure exposed systems and modernise legacy technology. Enterprise AI, cloud and cybersecurity from Lagos.',
     ogTitle: 'Greenatech | AI-Powered Digital Transformation',
     ogDescription: 'We automate what slows you down. Enterprise solutions, training, and AI products.',
   },

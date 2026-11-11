@@ -12,6 +12,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import ScrollToTop from './components/ScrollToTop';
+import CookieBanner from './components/CookieBanner';
 import StickyCTA from './components/StickyCTA';
 import Analytics from './components/Analytics';
 import { OrganizationStructuredData } from './components/StructuredData';
@@ -30,6 +31,7 @@ export default function App() {
         <ScrollToTop />
         <Analytics />
         <StickyCTA />
+        <CookieBanner />
         <Routes>
           <Route path="/admin/*" element={<AdminLayout />} />
           <Route path="/services" element={<EnterpriseSolutionsPage />} />

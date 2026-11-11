@@ -1,12 +1,23 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { initAnalytics, trackGaEvent, trackPageView } from '../lib/analytics';
+import { CONSENT_EVENT, initAnalytics, trackGaEvent, trackPageView } from '../lib/analytics';
 
 export default function Analytics() {
   const { pathname, search } = useLocation();
 
   useEffect(() => {
     initAnalytics();
+  }, []);
+
+  // If the visitor accepts after the page loaded, count the page they are on now.
+  useEffect(() => {
+    const onConsent = (e: Event) => {
+      if ((e as CustomEvent).detail === 'granted' && !window.location.pathname.startsWith('/admin')) {
+        trackPageView(window.location.pathname + window.location.search);
+      }
+    };
+    window.addEventListener(CONSENT_EVENT, onConsent);
+    return () => window.removeEventListener(CONSENT_EVENT, onConsent);
   }, []);
 
   // One delegated listener records clicks on contact/booking CTAs and outbound links.

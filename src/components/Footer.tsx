@@ -1,6 +1,7 @@
 import { Linkedin, Twitter, Instagram, ArrowRight, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { CONTACT_FORM } from '../lib/links';
+import { OPEN_COOKIE_SETTINGS } from './CookieBanner';
 
 const footerLinks = {
   Services: [
@@ -155,6 +156,13 @@ export default function Footer() {
               <Link to="/terms-of-service" className="text-gray-500 text-xs hover:text-gray-400 transition-colors">
                 Terms
               </Link>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS))}
+                className="text-gray-500 text-xs hover:text-gray-400 transition-colors"
+              >
+                Cookie settings
+              </button>
             </div>
           </div>
         </div>

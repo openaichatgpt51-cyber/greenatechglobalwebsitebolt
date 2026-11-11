@@ -20,7 +20,7 @@ export default function CookiePolicyPage() {
       <p>We use the following categories of cookies:</p>
       <ul>
         <li><strong>Essential cookies</strong> — required for the website to function correctly, such as remembering your session and security preferences.</li>
-        <li><strong>Analytics cookies</strong> — help us understand how visitors interact with our website so we can improve its performance and content.</li>
+        <li><strong>Analytics cookies</strong> — we use Google Analytics to understand how visitors interact with our website so we can improve its performance and content. These are only set if you click Accept on our cookie banner. If you decline, Google Analytics is not loaded. You can change your choice at any time using the Cookie settings link in the footer.</li>
         <li><strong>Preference cookies</strong> — remember your settings and choices, such as language or region, to provide a more personalised experience.</li>
       </ul>
       <p>We do not use advertising or tracking cookies that follow you across other websites.</p>

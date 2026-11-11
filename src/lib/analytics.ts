@@ -12,12 +12,43 @@ declare global {
 
 let initialised = false;
 
+// ---- Cookie consent (analytics only loads after the visitor accepts) ----
+export type Consent = 'granted' | 'denied' | null;
+const CONSENT_KEY = 'greenatech_analytics_consent';
+export const CONSENT_EVENT = 'greenatech-consent-change';
+
+export function getConsent(): Consent {
+  try {
+    const v = window.localStorage.getItem(CONSENT_KEY);
+    return v === 'granted' || v === 'denied' ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setConsent(value: 'granted' | 'denied') {
+  try {
+    window.localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    /* storage unavailable: the choice just applies to this page view */
+  }
+  if (value === 'granted') {
+    initAnalytics(true);
+  } else {
+    // Stop GA from setting or reading cookies for the rest of this session
+    if (GA_MEASUREMENT_ID) (window as unknown as Record<string, unknown>)[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+  }
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
+}
+
+
 // The CI prerender step loads every page in headless Chrome; keep it out of the stats.
 function isPrerenderBot(): boolean {
   return typeof navigator !== 'undefined' && navigator.userAgent.includes('GreenatechPrerenderBot');
 }
 
-export function initAnalytics() {
+export function initAnalytics(consentJustGranted = false) {
+  if (!consentJustGranted && getConsent() !== 'granted') return;
   if (initialised || !GA_MEASUREMENT_ID || typeof document === 'undefined' || isPrerenderBot()) {
     return;
   }

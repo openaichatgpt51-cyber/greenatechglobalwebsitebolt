@@ -46,3 +46,8 @@ export function trackPageView(path: string) {
     page_location: window.location.href,
   });
 }
+
+export function trackGaEvent(name: string, params: Record<string, string | number | boolean | null> = {}) {
+  if (!initialised || !window.gtag) return;
+  window.gtag('event', name, params);
+}

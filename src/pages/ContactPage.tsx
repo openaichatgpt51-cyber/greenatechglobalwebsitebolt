@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { supabase } from '../lib/supabase';
+import { trackGaEvent } from '../lib/analytics';
 
 const services = [
   'Enterprise Solutions',
@@ -136,6 +137,8 @@ export default function ContactPage() {
       }),
     }).catch(() => {});
 
+    // GA4's recommended lead event; request_type separates bookings from enquiries.
+    trackGaEvent('generate_lead', { request_type: form.requestType, service: serviceValue });
     setStatus('success');
     setForm((prev) => ({
       ...prev,
